@@ -1,5 +1,9 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+import os
+from dotenv import load_dotenv
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 # Define a start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -26,7 +30,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Main function to start the bot
 def main():
     # Replace 'YOUR_TOKEN' with the token from BotFather
-    TOKEN = "7589982321:AAEx5z-BZZyqXElVni4oCON1xUGREpzDwWc"
+    TOKEN = BOT_TOKEN
 
     # Create the application
     application = Application.builder().token(TOKEN).build()

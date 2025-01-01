@@ -2,6 +2,10 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 import yt_dlp
 import tempfile
+import os
+from dotenv import load_dotenv
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
 
 
 # Function to download video to a temporary file
@@ -39,7 +43,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Main function
 def main():
-    token = "7589982321:AAEx5z-BZZyqXElVni4oCON1xUGREpzDwWc"
+    token = TOKEN
     
     # Create the application
     application = Application.builder().token(token).build()
